@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-// using RepoLayer;
-// using ServiceLayer;
-// // using Models;
+using RepoLayer;
+using ServiceLayer;
+using Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,11 +14,11 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-// builder.Services.AddDbContext<SportsEventManagementContext>(options =>
-//     options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<SportsEventManagementContext>(options =>
+    options.UseSqlServer(connectionString));
 
-// builder.Services.AddTransient<ILoginModelRepo<LoginModel>, LoginModelRepo>();
-// builder.Services.AddTransient<ILoginModelService<LoginModel>, LoginModelService>();
+builder.Services.AddTransient<ILoginModelRepo<LoginModel>, LoginModelRepo>();
+builder.Services.AddTransient<ILoginModelService<LoginModel>, LoginModelService>();
 
 builder.Services.AddCors(options =>
 {
